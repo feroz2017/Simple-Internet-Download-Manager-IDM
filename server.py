@@ -26,7 +26,7 @@ class myThread(threading.Thread):
         self.data = data
     def run(self):
         print("Server Has Starting")
-        self.serverfd.listen()
+        self.serverfd.listen(1)
         conn,addr = self.serverfd.accept()
         conn.sendall((str(len(self.data))).encode())
         time.sleep(3)
@@ -57,7 +57,7 @@ serverSockets = list()
 
 chunks = []
 
-filename = "split.mp4"
+filename = "Test.mp4"
 filesize = os.path.getsize(filename)
 print(numberOfServers)
 chunksize = int(filesize/(numberOfServers))

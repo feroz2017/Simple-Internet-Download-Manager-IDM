@@ -7,9 +7,10 @@ import os
 from tqdm import tqdm
 import shutil
 
-os.mkdir("/root/IDM/A")
+#os.mkdir("/root/IDM/A")
 count = 1
 # Making Custom Thread
+os.makedirs("/root/IDM/A", exist_ok=True)
 
 videoParts = []
 
@@ -62,6 +63,7 @@ HOST = args.a # Extracting Server IP Address
 
 portnumbers = args.p  # Extracting port numbers
 
+output_location = args.o
 
 
 
@@ -100,6 +102,8 @@ for t in threads:
 #        f.write(i)
 
 
+
+
 readsize = 1024
 
 def join(fromdir, tofile):
@@ -120,5 +124,5 @@ def join(fromdir, tofile):
     output.close()
 
 
-join("A","Hurrah.mp4")
+join("A",output_location)
 shutil.rmtree("/root/IDM/A")
